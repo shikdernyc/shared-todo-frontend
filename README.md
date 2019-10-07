@@ -2,7 +2,7 @@
 
 1. Install dependencies: `npm install`
 2. Run the app: `npm start`
-3. Visit the app at `http://localhost:3000`
+3. Visit the app at http://localhost:3000
 
 ## Resources
 
