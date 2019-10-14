@@ -1,15 +1,15 @@
-import React, { Fragment, useState } from 'react'
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import CustomInput from "components/CustomInput/CustomInput";
-import Email from "@material-ui/icons/Email";
-import Lock from "@material-ui/icons/Lock";
-import Button from "components/CustomButtons/Button";
-import GridItem from "components/Grid/GridItem";
-import useInputState from "hooks/useInputState";
-import { formStyles } from './styles'
+import React, { Fragment, useState } from 'react';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import CustomInput from 'components/CustomInput/CustomInput';
+import Email from '@material-ui/icons/Email';
+import Lock from '@material-ui/icons/Lock';
+import Button from 'components/CustomButtons/Button';
+import GridItem from 'components/Grid/GridItem';
+import useInputState from 'hooks/useInputState';
+import { formStyles } from './styles';
 
-const useStyles = makeStyles(formStyles)
+const useStyles = makeStyles(formStyles);
 
 
 function LoginForm(props) {
@@ -18,21 +18,21 @@ function LoginForm(props) {
   const [email, handleEmailChange] = useInputState();
   const [password, handlePasswordChange] = useInputState();
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   const handleSubmit = async () => {
     const formData = {
       email, password
-    }
-    await setLoading(true)
+    };
+    await setLoading(true);
     try {
-      await props.onSubmit(formData)
+      await props.onSubmit(formData);
     } catch (error) {
-      throw error
+      throw error;
     } finally {
-      await setLoading(false)
+      await setLoading(false);
     }
-  }
+  };
 
   // RENDER
   return (
@@ -54,8 +54,8 @@ function LoginForm(props) {
             ),
             value: email,
             onChange: handleEmailChange,
-            placeholder: "Email...",
-            type: "email"
+            placeholder: 'Email...',
+            type: 'email'
           }}
         />
       </GridItem>
@@ -76,8 +76,8 @@ function LoginForm(props) {
             ),
             value: password,
             onChange: handlePasswordChange,
-            placeholder: "Password...",
-            type: "password"
+            placeholder: 'Password...',
+            type: 'password'
           }}
         />
       </GridItem>
@@ -87,7 +87,7 @@ function LoginForm(props) {
         </Button>
       </div>
     </Fragment>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;

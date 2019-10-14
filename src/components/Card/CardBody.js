@@ -1,24 +1,38 @@
-import React from "react";
+import React from 'react';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 // @material-ui/icons
 
 // core components
-import styles from "assets/jss/material-dashboard-react/components/cardBodyStyle.js";
+import styles from 'assets/jss/material-kit-pro-react/components/cardBodyStyle.js';
 
 const useStyles = makeStyles(styles);
 
 export default function CardBody(props) {
+  const {
+    className,
+    children,
+    background,
+    plain,
+    formHorizontal,
+    pricing,
+    signup,
+    color,
+    ...rest
+  } = props;
   const classes = useStyles();
-  const { className, children, plain, profile, ...rest } = props;
   const cardBodyClasses = classNames({
     [classes.cardBody]: true,
+    [classes.cardBodyBackground]: background,
     [classes.cardBodyPlain]: plain,
-    [classes.cardBodyProfile]: profile,
+    [classes.cardBodyFormHorizontal]: formHorizontal,
+    [classes.cardPricing]: pricing,
+    [classes.cardSignup]: signup,
+    [classes.cardBodyColor]: color,
     [className]: className !== undefined
   });
   return (
@@ -30,7 +44,11 @@ export default function CardBody(props) {
 
 CardBody.propTypes = {
   className: PropTypes.string,
+  background: PropTypes.bool,
   plain: PropTypes.bool,
-  profile: PropTypes.bool,
+  formHorizontal: PropTypes.bool,
+  pricing: PropTypes.bool,
+  signup: PropTypes.bool,
+  color: PropTypes.bool,
   children: PropTypes.node
 };
