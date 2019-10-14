@@ -14,6 +14,7 @@ import logo from 'assets/img/reactlogo.png';
 import { APP_NAME } from 'variables/app';
 import Home from './home';
 import sidebarRoutes from './sidebar_routes';
+import Team from './team';
 
 let ps;
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles(styles);
 
 // const Sidebars;
 
-export default function User({ ...rest }) {
+export default function User({ match: { url }, ...rest }) {
   // styles
   const classes = useStyles();
   // ref to help us initialize PerfectScrollbar on windows devices
@@ -30,6 +31,15 @@ export default function User({ ...rest }) {
   const [image] = React.useState(bgImage);
   const [color] = React.useState('blue');
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const routes = (
+    <Switch>
+      <Route path={`${url}home`} component={Home} />
+      <Route path={`${url}team`} component={Team} />
+      <Redirect to={`${url}home`} exact from={`${url}`} />
+      <Redirect to="/error/404" />
+    </Switch>
+  )
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -79,14 +89,7 @@ export default function User({ ...rest }) {
         />
         <div className={classes.content}>
           <div className={classes.container}>
-            {/* <h1>
-              Hello World
-            </h1> */}
-            <Switch>
-              <Route path={`${rest.match.url}home`} component={Home} />
-              <Redirect to={`${rest.match.url}home`} exact from={`${rest.match.url}`} />
-              <Redirect to="/error/404" />
-            </Switch>
+            {routes}
           </div>
         </div>
       </div>
