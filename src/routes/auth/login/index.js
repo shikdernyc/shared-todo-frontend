@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 // @material-ui/core components
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import makeStyles from '@material-ui/core/styles/makeStyles';
 // core components
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
-import LoginForm from './login_form'
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
-import Danger from 'components/Typography/Danger'
-import { withRouter } from "react-router-dom";
-import { loginStyles } from './styles'
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardHeader from 'components/Card/CardHeader';
+import LoginForm from './login_form';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import Danger from 'components/Typography/Danger';
+import { withRouter } from 'react-router-dom';
+import { loginStyles } from './styles';
 
-const useStyles = makeStyles(loginStyles)
+const useStyles = makeStyles(loginStyles);
 
 function Login(props) {
   // STATES
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   // HANDLERS
   const handleLogin = async () => {
@@ -25,8 +25,8 @@ function Login(props) {
       // TODO: Handle registeration
       // TODO: Handle updating user context
     } catch (error) {
-      setErrorMessage("Something went wrong")
-      throw error
+      setErrorMessage('Something went wrong');
+      throw error;
     }
   };
 
@@ -35,7 +35,7 @@ function Login(props) {
   return (
     <Card className={classes.card}>
       <CardHeader color="rose">
-        <h4 className={classes.cardTitle} style={{ color: "white" }}>
+        <h4 className={classes.cardTitle} style={{ color: 'white' }}>
           Login
         </h4>
       </CardHeader>

@@ -1,16 +1,16 @@
-import React, { Fragment, useState } from 'react'
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import CustomInput from "components/CustomInput/CustomInput";
-import Face from "@material-ui/icons/Face";
-import Email from "@material-ui/icons/Email";
-import Lock from "@material-ui/icons/Lock";
-import Button from "components/CustomButtons/Button";
-import GridItem from "components/Grid/GridItem";
-import useInputState from "hooks/useInputState";
-import { formStyles } from './styles'
+import React, { Fragment, useState } from 'react';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import CustomInput from 'components/CustomInput/CustomInput';
+import Face from '@material-ui/icons/Face';
+import Email from '@material-ui/icons/Email';
+import Lock from '@material-ui/icons/Lock';
+import Button from 'components/CustomButtons/Button';
+import GridItem from 'components/Grid/GridItem';
+import useInputState from 'hooks/useInputState';
+import { formStyles } from './styles';
 
-const useStyles = makeStyles(formStyles)
+const useStyles = makeStyles(formStyles);
 
 
 function SignupForm(props) {
@@ -21,21 +21,21 @@ function SignupForm(props) {
   const [password, handlePasswordChange] = useInputState();
   const [confirmPassword, handleConfirmPasswordChange] = useInputState();
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   const handleSubmit = async () => {
     const formData = {
       email, fullName, password, confirmPassword
-    }
-    await setLoading(true)
+    };
+    await setLoading(true);
     try {
-      await props.onSubmit(formData)
+      await props.onSubmit(formData);
     } catch (error) {
-      throw error
+      throw error;
     } finally {
-      await setLoading(false)
+      await setLoading(false);
     }
-  }
+  };
 
   // RENDER
   return (
@@ -57,7 +57,7 @@ function SignupForm(props) {
             ),
             value: fullName,
             onChange: handleFullNameChange,
-            placeholder: "Full Name..."
+            placeholder: 'Full Name...'
           }}
         />
       </GridItem>
@@ -78,8 +78,8 @@ function SignupForm(props) {
             ),
             value: email,
             onChange: handleEmailChange,
-            placeholder: "Email...",
-            type: "email"
+            placeholder: 'Email...',
+            type: 'email'
           }}
         />
       </GridItem>
@@ -100,8 +100,8 @@ function SignupForm(props) {
             ),
             value: password,
             onChange: handlePasswordChange,
-            placeholder: "Password...",
-            type: "password"
+            placeholder: 'Password...',
+            type: 'password'
           }}
         />
       </GridItem>
@@ -120,11 +120,11 @@ function SignupForm(props) {
                 <Lock className={classes.inputAdornmentIcon} />
               </InputAdornment>
             ),
-            name: "confirmPassword",
+            name: 'confirmPassword',
             value: confirmPassword,
             onChange: handleConfirmPasswordChange,
-            placeholder: "Confirm Password...",
-            type: "password"
+            placeholder: 'Confirm Password...',
+            type: 'password'
           }}
         />
       </GridItem>
@@ -134,7 +134,7 @@ function SignupForm(props) {
         </Button>
       </div>
     </Fragment>
-  )
+  );
 }
 
-export default SignupForm
+export default SignupForm;

@@ -1,59 +1,56 @@
 {
   "name": "shared-todo",
   "version": "1.8.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
-  "private": false,
-  "main": "dist/index.js",
+  "private": true,
   "dependencies": {
     "@material-ui/core": "4.3.2",
     "@material-ui/icons": "4.2.1",
-    "chartist": "0.10.1",
+    "animate.css": "3.7.2",
+    "chartist": "^0.11.4",
     "classnames": "2.2.6",
     "history": "4.9.0",
-    "perfect-scrollbar": "1.4.0",
+    "moment": "2.24.0",
+    "node-sass": "4.12.0",
+    "nouislider": "14.0.2",
+    "perfect-scrollbar": "^1.4.0",
     "prop-types": "15.7.2",
     "react": "16.9.0",
-    "react-chartist": "0.13.3",
+    "react-animate-on-scroll": "2.1.5",
+    "react-chartist": "^0.13.3",
+    "react-datetime": "2.16.3",
     "react-dom": "16.9.0",
     "react-google-maps": "9.4.5",
+    "react-image-gallery": "0.8.18",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.1.0",
-    "react-swipeable-views": "0.13.3"
+    "react-slick": "0.25.2",
+    "react-swipeable-views": "0.13.3",
+    "react-tagsinput": "3.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && gulp licenses",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
     "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
-    "build-package-css": "cp src/assets/css/material-dashboard-react.css dist/material-dashboard-react.css",
-    "build-package": "npm run build-package-css && babel src --out-dir dist"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "compile-sass": "node-sass src/assets/scss/material-kit-pro-react.scss src/assets/css/material-kit-pro-react.css",
+    "minify-sass": "node-sass src/assets/scss/material-kit-pro-react.scss src/assets/css/material-kit-pro-react.min.css --output-style compressed",
+    "map-sass": "node-sass src/assets/scss/material-kit-pro-react.scss src/assets/css/material-kit-pro-react.css --source-map true"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8"
   },
-  "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
-  },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
   "optionalDependencies": {
     "@types/googlemaps": "3.37.3",
     "@types/markerclustererplus": "2.1.33",
-    "ajv": "6.10.2",
-    "typescript": "3.5.3"
-  },
-  "devDependencies": {
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-prettier": "3.1.0",
-    "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.8",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "typescript": "3.5.3"
   },
   "browserslist": {
     "production": [

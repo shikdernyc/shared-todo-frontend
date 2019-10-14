@@ -7,5 +7,6 @@
 ## Resources
 
 - Material UI: https://v4-1-3.material-ui.com/
-- Demo: https://demos.creative-tim.com/material-dashboard-react
-- Documentation: https://demos.creative-tim.com/material-dashboard-react/#/documentation/tutorial
+- Dashboard Demo: https://demos.creative-tim.com/material-dashboard-react
+- Material Kit Demo: https://demos.creative-tim.com/material-kit-pro-react
+- Documentation: https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial

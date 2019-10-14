@@ -11,13 +11,17 @@ export function UserProvider({ children }) {
     await setUserData(null)
   }
 
-  const setUserData = async (userData) => {
+  const updateUserData = async (userData) => {
     await setUserData(userData)
   }
 
+  const isAuthenticated = () => {
+    return userData !== null
+  }
+
   return (
-    <UserContext.Provider value={{ userData }}>
-      <UserActionContext.Provider value={{ setUserData, logout }}>
+    <UserContext.Provider value={{ userData, isAuthenticated }}>
+      <UserActionContext.Provider value={{ updateUserData, logout }}>
         {children}
       </UserActionContext.Provider>
     </UserContext.Provider>
@@ -27,3 +31,5 @@ export function UserProvider({ children }) {
 UserProvider.propTypes = {
   children: PropTypes.element.isRequired
 };
+
+export default UserContext
